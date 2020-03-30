@@ -552,6 +552,6 @@ function render() {
     context.fillText("Weapon upgrade : 60s", 15, 30);
     context.fillText("Restart [R]", 15, 60);
     if (me.special == true) {
-        context.fillText("Special attak [Space]", 15, 90);
+        context.fillText("Special attak [Space] : 1 use", 15, 90);
     }
 };
