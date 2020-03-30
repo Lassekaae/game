@@ -92,7 +92,7 @@ function spawnFunction() {
 function calcSpawnTime() {
     let val;
     val = 1000 - (time * enemyInfo.spawnrate);
-    if (val <= 1) val = 1; //Optimal at 150
+    if (val <= 150) val = 150; //Optimal at 150
     return val;
 }
 
