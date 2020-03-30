@@ -384,12 +384,11 @@ function handler() {
     }
 
     //Highscore
-    let highScore = parseInt(getCookie("highScore"), 10);
-    if (getCookie("highScore") == null) setCookie("highScore", time, 365);
+    let highScore = localStorage.getItem("highScore");
+    if (localStorage.getItem("highScore") == null) localStorage.setItem("highScore", time);
     else if (highScore < time) {
-        setCookie("highScore", time, 365);
+        localStorage.setItem("highScore", time);
     }
-
     requestAnimationFrame(handler);
     render();
 };
@@ -500,7 +499,7 @@ function render() {
     context.textAlign = "center";
     context.fillText(time, (canvas.width / 2), 150);
     context.font = "20px Arial";
-    context.fillText("Highscore - " + getCookie("highScore"), (canvas.width / 2), 200);
+    context.fillText("Highscore - " + localStorage.getItem("highScore"), (canvas.width / 2), 200);
 
     //Draw healthbar
     //Black box
@@ -523,27 +522,3 @@ function render() {
     context.fillText("Weapon upgrade : 60s", 15, 30);
     context.fillText("Restart [R]", 15, 60);
 };
-
-//Cookie handling
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-function eraseCookie(name) {
-    document.cookie = name + '=; Max-Age=-99999999;';
-}
