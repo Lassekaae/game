@@ -28,7 +28,8 @@ var me = {
     maxHp: 10,
     percentHp: 1,
     ammo: 120,
-    bleeding: false
+    bleeding: false,
+    special: true
 };
 me.hp = me.maxHp;
 me.x = (canvas.width / 2) - (me.size / 2);
@@ -136,6 +137,12 @@ $(window).on("keydown", function (e) {
             break;
         case 82:
             location.reload();
+            break;
+        case 32:
+            if (me.special == true) {
+                enemies = [];
+                me.special = false;
+            }
             break;
     }
 });
