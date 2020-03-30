@@ -92,7 +92,7 @@ function spawnFunction() {
 function calcSpawnTime() {
     let val;
     val = 1000 - (time * enemyInfo.spawnrate);
-    if (val <= 200) val = 200; // Spawn every 1 unit every 0.2 sec
+    if (val <= 150) val = 150; // Spawn every 1 unit every 0.2 sec
     return val;
 }
 
@@ -252,7 +252,7 @@ var healInfo = {
     ammount: (me.maxHp / 100) * 50,
     sound: "content/mp3/reload.mp3",
     volume: 1,
-    spawnrate: 10
+    spawnrate: 15
 }
 function spawnHealth() {
     let random = Math.random();
@@ -489,8 +489,8 @@ function render() {
         context.stroke();
         context.fillStyle = "black";
         context.font = "12px Arial";
-        context.textAlign = "center";
-        context.fillText(healInfo.ammount, heal.x + (healInfo.size / 2), heal.y - (healInfo.size / 100) * 20);
+        context.textAlign = "center"; // 5 / 10 * 100
+        context.fillText((healInfo.ammount / me.maxHp) * 100 + "%", heal.x + (healInfo.size / 2), heal.y - (healInfo.size / 100) * 20);
     }
 
     //Draw time
