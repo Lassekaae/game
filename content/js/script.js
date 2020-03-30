@@ -513,8 +513,13 @@ function render() {
         context.fillText((healInfo.ammount / me.maxHp) * 100 + "%", heal.x + (healInfo.size / 2), heal.y - (healInfo.size / 100) * 20);
     }
 
+    context.shadowBlur = 0;
+    context.shadowOffsetX = 1;
+    context.shadowOffsetY = 1;
+    context.shadowColor = "rgba(0,0,0)";
+
     //Draw time
-    context.fillStyle = "black";
+    context.fillStyle = "white";
     context.font = "80px Arial";
     context.textAlign = "center";
     context.fillText(time, (canvas.width / 2), 150);
@@ -530,15 +535,23 @@ function render() {
     context.fillRect(me.x, me.y - (me.size / 1.5), me.size * me.percentHp, (me.size / 100) * 20);
 
     //Draw ammoText
-    context.fillStyle = "black";
+    context.fillStyle = "white";
     context.font = "30px Arial";
     context.textAlign = "center";
     context.fillText(me.ammo, me.x + (me.size / 2), me.y + me.size * 1.6);
 
     //Draw Generel info text
-    context.fillStyle = "black";
+    context.shadowBlur = 0;
+    context.shadowOffsetX = 1;
+    context.shadowOffsetY = 1;
+    context.shadowColor = "rgba(0,0,0)";
+
+    context.fillStyle = "white";
     context.font = "20px Arial";
     context.textAlign = "left";
     context.fillText("Weapon upgrade : 60s", 15, 30);
     context.fillText("Restart [R]", 15, 60);
+    if (me.special == true) {
+        context.fillText("Special attak [Space]", 15, 90);
+    }
 };
