@@ -195,7 +195,7 @@ var projectile = {
     color: "black",
     speed: 5,
     sound: "content/mp3/bullet.mp3",
-    volume: 0.1,
+    volume: 0.05,
     velocity: 1800, //Scale from 1 - 2000
     dmg: 1
 };
@@ -249,7 +249,7 @@ function spawnAmmo() {
     let ranY = Math.floor(Math.random() * canvas.height);
     if (ranX + ammoInfo.size > canvas.width) ranX = canvas.width - ammoInfo.size;
     if (ranY + ammoInfo.size > canvas.height) ranY = canvas.height - ammoInfo.size;
-    let ammo = { x: ranX, y: ranY }
+    let ammo = { x: ranX, y: ranY, size: ammoInfo.size }
     ammonition.push(ammo);
 }
 setInterval(function () {
@@ -280,7 +280,7 @@ function spawnHealth() {
     let ranY = Math.floor(Math.random() * canvas.height);
     if (ranX + healInfo.size > canvas.width) ranX = canvas.width - healInfo.size;
     if (ranY + healInfo.size > canvas.height) ranY = canvas.height - healInfo.size;
-    let health = { x: ranX, y: ranY }
+    let health = { x: ranX, y: ranY, size: healInfo.size }
     heals.push(health);
 }
 setInterval(function () {
