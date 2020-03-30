@@ -1,4 +1,4 @@
-document.title = "Version: " + 0.1;
+document.title = "Version: " + 0.2;
 
 //define canvas
 var canvas = $("canvas")[0];
