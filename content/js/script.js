@@ -1,3 +1,5 @@
+document.title = "Version: " + 0.1;
+
 //define canvas
 var canvas = $("canvas")[0];
 var context = canvas.getContext("2d");
@@ -75,9 +77,9 @@ setInterval(function () {
     }
     if (time == 100) {
         me.color = "pink";
-        projectile.speed = projectile.speed + 10;
         projectile.velocity = projectile.velocity + 50;
         projectile.dmg = projectile.dmg + 2;
+        me.ammo = me.ammo + 200;
         clearInterval(shooting);
     }
 
