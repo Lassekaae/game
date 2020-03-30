@@ -15,6 +15,8 @@ $(window).resize(function () {
 //Deltatime
 var deltaTime = 0;
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 //Player (me) object
 var me = {
     size: 90,
@@ -71,6 +73,13 @@ setInterval(function () {
         projectile.dmg = projectile.dmg + 1;
         clearInterval(shooting);
     }
+    if (time == 100) {
+        me.color = "pink";
+        projectile.speed = projectile.speed + 10;
+        projectile.velocity = projectile.velocity + 50;
+        projectile.dmg = projectile.dmg + 2;
+        clearInterval(shooting);
+    }
 
     //Check for minimized game
     if (document.hidden) {
@@ -92,7 +101,7 @@ function spawnFunction() {
 function calcSpawnTime() {
     let val;
     val = 1000 - (time * enemyInfo.spawnrate);
-    if (val <= 150) val = 150; //Optimal at 150
+    if (val <= 110) val = 110; //Optimal at 150
     return val;
 }
 
@@ -159,8 +168,10 @@ $(canvas).on("mousemove", function (e) {
 //Mousedown
 var shooting;
 $(canvas).on("mousedown", function (e) {
-    shoot();
-    shooting = setInterval(shoot, 2000 - projectile.velocity);
+    if (e.which == 1) {
+        shoot();
+        shooting = setInterval(shoot, 2000 - projectile.velocity);
+    }
 });
 
 //mouseup & mouseleave
@@ -252,7 +263,7 @@ var healInfo = {
     ammount: (me.maxHp / 100) * 50,
     sound: "content/mp3/reload.mp3",
     volume: 1,
-    spawnrate: 15
+    spawnrate: 20
 }
 function spawnHealth() {
     let random = Math.random();
