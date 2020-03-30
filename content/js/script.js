@@ -433,11 +433,11 @@ function render() {
     for (let i = 0; i < enemies.length; i++) {
         let enemy = enemies[i];
         context.strokeStyle = 'black';
-        if (enemy.hp == 1) context.fillStyle = "#a87979";
-        if (enemy.hp == 2) context.fillStyle = "#a35252";
-        if (enemy.hp == 3) context.fillStyle = "#a83232";
-        if (enemy.hp == 4) context.fillStyle = "#c73510";
-        if (enemy.hp == 5) context.fillStyle = "#fc6b03";
+        if (enemy.hp == 1) context.fillStyle = "#a19595";
+        if (enemy.hp == 2) context.fillStyle = "#9c7e7e";
+        if (enemy.hp == 3) context.fillStyle = "#a15454";
+        if (enemy.hp == 4) context.fillStyle = "#a32f2f";
+        if (enemy.hp == 5) context.fillStyle = "#8a0000";
         context.translate(enemy.x + (enemy.size / 2), enemy.y + (enemy.size / 2));
         context.rotate(enemy.deg * Math.PI / 180);
         context.translate(-(enemy.x + (enemy.size / 2)), -(enemy.y + (enemy.size / 2)));
