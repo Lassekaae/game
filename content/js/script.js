@@ -36,7 +36,7 @@ var enemies = [
 var enemyInfo = {
     size: 60,
     color: "red",
-    speed: 20,
+    speed: 10,
     spawnrate: 10
 };
 //Spawn enemy
@@ -92,7 +92,7 @@ function spawnFunction() {
 function calcSpawnTime() {
     let val;
     val = 1000 - (time * enemyInfo.spawnrate);
-    if (val <= 150) val = 150; // Spawn every 1 unit every 0.2 sec
+    if (val <= 1) val = 1; //Optimal at 150
     return val;
 }
 
