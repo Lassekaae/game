@@ -549,7 +549,7 @@ function render() {
     context.fillStyle = "white";
     context.font = "20px Arial";
     context.textAlign = "left";
-    context.fillText("Weapon upgrade : 60s", 15, 30);
+    context.fillText("Weapon upgrade : 60s & 100s", 15, 30);
     context.fillText("Restart [R]", 15, 60);
     if (me.special == true) {
         context.fillText("Special attak [Space] : 1 use", 15, 90);
